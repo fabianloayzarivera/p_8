@@ -1,26 +1,24 @@
 #include "stdafx.h"
 #include "namespaces.h"
 
-
-FILE* FileTools::open(char *filename, char* openMode) {
-	FILE *ptr;
+TypeFile* FileTools::open(TypeFile* ptr, char *filename, char* openMode) {
 	if (!fopen_s(&ptr, filename, openMode))
 		return ptr;
 	else
-		return nullptr;	
+		return nullptr;
 }
 
-void FileTools::close(FILE *ptr) {
+void FileTools::close(TypeFile *ptr) {
 	fclose(ptr);
 }
 
-int FileTools::write(FILE* ptr, char *buffer, int cant) {
-	
+int FileTools::write(TypeFile* ptr, char *buffer, int cant) {
+
 	int charWritten = fwrite(buffer, cant, 1, ptr) * cant;
 	return charWritten;
 }
 
-int FileTools::read(FILE* ptr, char bufferRead[], int cant) {
+int FileTools::read(TypeFile* ptr, char bufferRead[], int cant) {
 
 	int charRead = fread(bufferRead, cant, 1, ptr) * cant;
 	return charRead;

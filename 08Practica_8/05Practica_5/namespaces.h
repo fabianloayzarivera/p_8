@@ -7,12 +7,13 @@
 #include <sstream>
 
 using namespace std;
-
+typedef FILE TypeFile;
 namespace FileTools {
-	FILE* open(char *filename, char* openMode);
-	void  close(FILE *ptr);
-	int   write(FILE* ptr, char *buffer, int cant);
-	int   read(FILE* ptr, char bufferRead[], int cant);
+	
+	TypeFile* open(TypeFile* ptr, char *filename, char* openMode);
+	void  close(TypeFile* ptr);
+	int   write(TypeFile* ptr, char *buffer, int cant);
+	int   read(TypeFile* ptr, char bufferRead[], int cant);
 }
 
 namespace Functions {
